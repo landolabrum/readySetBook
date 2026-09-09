@@ -43,7 +43,7 @@
     --tertiary-o: #bfb0a170;
 
     --bg-primary: radial-gradient(circle,
-            var(--gray-100), var(--gray-90));
+            var(--gray-10), var(--white));
     --bg-secondary: radial-gradient(circle,
             var(--gray-80) 0%,
             var(--gray-90) 17%,
