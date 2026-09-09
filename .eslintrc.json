@@ -1,0 +1,14 @@
+{
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": ["**/*.scss"],
+  "rules": {
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": [
+          "jsx", "object","ambientLight","directionalLight","intensity","position"
+        ]
+      }
+    ]
+  }
+}

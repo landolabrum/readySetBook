@@ -1,0 +1,55 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canopy-header {
+    @extend .d-flex;
+    align-items: flex-end;
+    z-index: 10;
+    height: max-content;
+    position: relative;
+    z-index: 998;
+
+    @media (max-width: 1100px) {
+        padding: 0;
+        flex-direction: column;
+        max-width: unset;
+        margin: unset;
+    }
+}
+
+/* ---- Toolbar (server-preview / Undo / Push Live) ---- */
+.canopy-view__toolbar {
+    @extend .d-flex;
+    justify-content: flex-end;
+    position: relative;
+
+    @media (max-width: 1100px) {
+        border-left: unset;
+        border-bottom: solid 2px var(--gray-60-o);
+        margin-left: unset;
+    }
+
+    &--item {
+        overflow: hidden;
+        @extend .d-flex;
+        font-size: .69rem;
+        padding: var(--s-9);
+        width: var(--s-9-w);
+        --ui-icon-size: var(--s-3);
+
+        width: max-content;
+
+        @media (min-width: 1100px) {
+            background-color: unset;
+
+        }
+
+        label {
+            width: var(--s-11-w);
+            padding: var(--s-11);
+        }
+    }
+}

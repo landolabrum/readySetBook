@@ -1,0 +1,6 @@
+# Add this to your .gitignore if not already there
+.env
+.env.local
+.env*.local
+out/
+.next/

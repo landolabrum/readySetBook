@@ -1,0 +1,51 @@
+.config-self-update {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+
+    &--inline {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  &__label {
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__hint {
+    opacity: 0.55;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.7rem;
+    font-family: var(--font-mono, monospace);
+  }
+
+  &__input {
+    background: var(--color-bg-1, #1a1a1a);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: inherit;
+    font-family: var(--font-mono, monospace);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}

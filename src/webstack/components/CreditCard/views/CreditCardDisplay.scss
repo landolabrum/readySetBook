@@ -1,0 +1,146 @@
+// @import '@webstack/styles/index';
+
+.credit-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--bg-tertiary, rgba(0, 0, 0, 0.02)), var(--bg-secondary, #fff));
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--border-hover, rgba(0, 0, 0, 0.15));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &__icon-wrapper {
+    flex-shrink: 0;
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary, #fff);
+    border: 2px solid var(--border-color, rgba(0, 0, 0, 0.08));
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    svg,
+    i {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    &:hover {
+      border-color: var(--blue-50, #007bff);
+      background: var(--bg-tertiary, rgba(0, 0, 0, 0.02));
+    }
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__brand {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary, #000);
+    margin-bottom: 0.25rem;
+  }
+
+  &__number {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.7));
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+    user-select: none;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted, rgba(0, 0, 0, 0.5));
+  }
+
+  &__expiry {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__funding {
+    padding: 2px 8px;
+    background: var(--bg-tertiary, rgba(0, 0, 0, 0.02));
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  &__country {
+    padding: 2px 8px;
+    background: var(--bg-tertiary, rgba(0, 0, 0, 0.02));
+    border-radius: 3px;
+    font-size: 0.75rem;
+  }
+}
+
+.credit-card--compact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  svg,
+  i {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .credit-card__brand {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .credit-card {
+    gap: 1rem;
+    padding: 1rem;
+
+    &__icon {
+      width: 48px;
+      height: 48px;
+
+      svg,
+      i {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &__brand {
+      font-size: 1rem;
+    }
+
+    &__number {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    &__meta {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+}

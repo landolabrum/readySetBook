@@ -1,0 +1,17 @@
+
+.fleet{
+    height: calc(var(--s-page-height) - var(--s-11));
+    // @media(max-width:1100px){}
+
+    &__header, &__content{
+        display: flex;
+    }
+    &__header{
+        height: max-content;
+        overflow:hidden;
+    }
+    &__content{
+        height: 100%;
+    }
+
+}

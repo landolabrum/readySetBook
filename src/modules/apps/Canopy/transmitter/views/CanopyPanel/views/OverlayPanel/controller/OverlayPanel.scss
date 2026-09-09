@@ -1,0 +1,9 @@
+.overlay-panel{
+    padding:var(--s-9);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: var(--s-9-w);
+    background: var(--gray-80);
+        box-sizing: border-box;
+        overflow: visible;
+}

@@ -1,0 +1,38 @@
+/* OverlayPage.scss */
+
+.canopy-page {
+  &.is-fullscreen {
+    position: fixed;
+    inset: 0;
+    aspect-ratio: auto;
+    z-index: 10005;
+    overflow: hidden;
+    width: var(--s-border-w);
+    // border: solid 1px red;
+  }
+
+  &.is-inline {
+    position: relative;
+    width: 100%;
+    aspect-ratio: auto;
+    overflow: hidden;
+  }
+
+  &__badge {
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-size: var(--s-7);
+    top: var(--s-9);
+    left: var(--s-9);
+    line-height: 1;
+    background: var(--orange-70-o);
+    color: var(--gray-50);
+    padding: 3px 6px;
+    border-radius: 3px;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* hide Next.js dev overlay badge */

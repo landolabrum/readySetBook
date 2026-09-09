@@ -1,0 +1,76 @@
+.direct-messages__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.direct-messages__title {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.direct-messages__meta {
+    color: var(--gray-70, #666);
+    font-size: 0.95rem;
+}
+
+.direct-messages__error {
+    color: var(--danger-40, #c23b3b);
+    font-size: 0.9rem;
+}
+
+.direct-messages__status {
+    color: var(--success-50, #1a7f37);
+    font-size: 0.9rem;
+}
+
+.direct-messages__search {
+    margin-top: 12px;
+    display: grid;
+    gap: 6px;
+}
+
+.direct-messages__search-hint {
+    color: var(--gray-70, #666);
+    font-size: 0.85rem;
+}
+
+.direct-messages__search-results {
+    margin-top: 12px;
+    display: grid;
+    gap: 8px;
+    background: var(--gray-5, #f6f6f6);
+    border: 1px solid var(--gray-20, #dcdcdc);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.direct-messages__search-title {
+    font-weight: 600;
+}
+
+.direct-messages__search-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    background: white;
+    border: 1px solid var(--gray-15, #e6e6e6);
+    border-radius: 6px;
+}
+
+.direct-messages__search-main {
+    display: grid;
+    gap: 2px;
+}
+
+.direct-messages__search-name {
+    font-weight: 600;
+}
+
+.direct-messages__search-meta {
+    color: var(--gray-70, #666);
+    font-size: 0.85rem;
+}

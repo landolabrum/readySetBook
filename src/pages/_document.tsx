@@ -1,0 +1,22 @@
+
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import HiddenBuildId from "@webstack/lib/project/BuildInfo/useBuildInfo";
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="stylesheet" href="/styles/global.css" />
+          <link rel="stylesheet" href="/styles/d3.css" />
+          <link rel="stylesheet" href="/styles/mapbox.css" />
+        </Head>
+        <body id="app-body">
+          <Main />
+          <NextScript />
+          <HiddenBuildId />
+        </body>
+      </Html>
+    );
+  }
+}
+

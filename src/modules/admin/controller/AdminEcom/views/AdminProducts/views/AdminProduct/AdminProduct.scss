@@ -1,0 +1,107 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-product {
+    @extend .d-flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--s-5);
+    align-items: flex-start;
+    background-color: var(--gray-40);
+    border-radius: var(--border-radius);
+    color: var(--primary-10);
+    justify-content: flex-start;
+
+    width: var(--s-1-w);
+    padding: var(--s-1);
+    background: var(--gray-40);
+
+    @media(max-width: 1100px) {
+        gap: 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    &__section {
+        color: var(--primary-90);
+        font-weight: 900;
+        letter-spacing: 2px;
+        font-family: 'Courier New', Courier, monospace;
+        width: var(--s-9-w);
+        padding: var(--s-9);
+        @extend .d-flex;
+        margin: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__draft-banner {
+        @extend .d-flex;
+        justify-content: space-between;
+        padding: var(--s-6);
+        gap: var(--s-9);
+
+        width: var(--s-6-w);
+        border-radius: var(--border-radius);
+        background-color: var(--gray-30);
+        font-size: var(--s-2);
+
+        @media(max-width: 1100px) {
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+
+//     @extend .d-flex;
+
+//     overflow: hidden;
+//     text-wrap: wrap;
+//     white-space: wrap;
+//     display: block;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     gap:var(--s-9);
+//     width: 100%;
+//     &--title{
+//         font-size: var(--s-3);
+//         text-transform: capitalize;
+//         line-height: 1;
+//         margin-bottom: var(--s-4);
+//         color: var(--gray-40);
+//     }
+//     &__footer{
+//         @extend .d-flex;
+//         width: 100%;
+//         justify-content: flex-end;
+//     }
+//     &__section{
+//         width: var(--s-9-w);
+//         padding:var(--s-9);
+//         border-radius: var(--border-radius);
+//         background-color: var(--gray-70-o);
+//     }
+// }
+// .remove-icon{
+//     --ui-icon-color: var(--red-90);
+//     background-color: var(--gray-90-o);
+//     width: max-content;
+//     // height: var(--s-1);
+//     border-radius:var(--border-radius   );
+//     @extend .d-flex;
+//     // cursor: pointer;
+//     color: var(--red-30);
+//     padding: 0;
+//     &:hover,&:active, &:focus{
+//         --ui-icon-color: var(--red-30);
+//     }
+//     &:focus-within, &:target,&:active, &:focus{
+//         --ui-icon-color: var(--gray-10);
+//         background-color: var(--red-30);
+//     }
+
+//     // --ui-icon-size: var(--s-element);
+// }

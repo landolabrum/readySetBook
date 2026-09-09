@@ -1,0 +1,136 @@
+.canopy-feed-list {
+  width: 100%;
+  &__toolbar {
+    display: flex;
+    gap: var(--s-9);
+    padding: 0 0 var(--s-9);
+    width: var(--s-9-w  );
+    justify-content: flex-end;
+    @media (max-width: 640px) {
+      padding:  var(--s-9) 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 480px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus-within {
+      border-color: #e53e3e;
+      box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.15);
+    }
+
+    :global(.ui-icon) {
+      color: #666;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #f0f0f0;
+    font-size: 14px;
+    padding: 10px 10px;
+    outline: none;
+
+    &::placeholder {
+      color: #666;
+    }
+  }
+
+  &__search-clear {
+    border: none;
+    background: transparent;
+    color: #888;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+
+    &:hover {
+      color: #e53e3e;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+  }
+
+  &__loading,
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 80px 20px;
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+
+    :global(.ui-icon) {
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px 0 16px;
+  }
+
+  &__page-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #1e1e1e;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: #2a2a2a;
+      border-color: #555;
+      color: #fff;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  &__page-info {
+    font-size: 13px;
+    color: #999;
+    user-select: none;
+  }
+}

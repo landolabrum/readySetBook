@@ -1,0 +1,23 @@
+
+.direct-messages__list {
+    border: 1px solid var(--gray-20, #e1e1e1);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-x: auto;
+    height: max-content;
+}
+
+.direct-messages__badge {
+    background: var(--danger-30, #e55353);
+    color: #fff;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+}

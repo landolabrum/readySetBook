@@ -1,0 +1,219 @@
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          color: var(--gray-20);
+          z-index: 4;
+
+          height: 100%;
+        }
+img {
+  // width: 100%;
+  // height: 100%;
+  // z-index: 1;
+  // position: relative;
+  // object-fit: cover;
+  --min-media:calc(100% + 4px);
+    width: 100%;
+      height: auto;
+      z-index: 1;
+      position: relative;
+      object-fit: cover;
+      overflow: hidden;
+      min-width: var(----min-media);
+      min-width: var(--min-media);
+  @extend .d-flex;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @extend .d-flex;
+}
+
+
+
+.ui-media {
+  min-height: 0;
+  z-index: 2;
+
+  &--carousel {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+
+  &__error {
+    @extend .d-flex;
+    height: 100%;
+    width: 100%;
+    color: var(--red-50);
+    --ui-icon-color: var(--red-50);
+    gap: var(--s-9);
+    cursor: pointer;
+  }
+
+  &__children {
+    @extend .d-flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2111;
+
+    &.background {
+      position: absolute;
+      width: var(--s-1-w);
+      height: var(--s-1-w);
+      padding: var(--s-1);
+      min-width: 50vw;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: visible;
+    }
+
+    &--knockout {
+      visibility: hidden;
+      bottom: var(--s-9);
+      right: var(--s-8);
+      position: absolute;
+      width: max-content;
+      overflow: hidden;
+      height: max-content;
+    }
+
+
+  }
+
+  transition:all .3s ease-in;
+
+  .rect {
+    user-select: none;
+    pointer-events: none;
+    fill: var(--gray-70);
+  }
+
+  &:hover {
+    .rect {
+      fill: var(--gray-50);
+    }
+  }
+
+  &__children--knockout {
+    visibility: visible;
+  }
+
+  &__iframe-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 300px; // 👈 ensures iframe can render
+    aspect-ratio: 16 / 9; // optional for responsive design
+    background: var(--gray-90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ui-media__error {
+      color: red;
+      font-size: 0.875rem;
+      text-align: center;
+      z-index: 5;
+      height: 100%;
+    }
+
+
+
+    .ui-media__error {
+      color: red;
+      font-size: 0.875rem;
+      text-align: center;
+      margin-top: 1rem;
+      z-index: 5;
+    }
+  }
+
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  &--background {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: auto;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: -2;
+    transition: none;
+  }
+
+  /* Knockout variant should fill its parent's height and width
+     SVG/image inside must stretch and use cover to avoid letterboxing */
+  &--knockout {
+    display: block;
+    width: 100%;
+    height: 100%;
+    align-self: stretch;
+
+    svg,
+    img,
+    image {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+    img,
+    image {
+      object-fit: cover;
+    }
+  }
+
+  &--poster {
+    @extend .d-flex;
+    z-index: 3;
+    background: var(--gray-90-o);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: max-content;
+
+    &__content {
+      @extend .d-flex;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      color: var(--primary-10);
+      text-shadow: 0 0 10px var(--primary-50);
+      overflow: hidden;
+      font-size: var(--s-1);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--white);
+        text-shadow: 0 0 var(--s-3) var(--primary-10);
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.surveillance {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    @extend .d-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: var(--s-page-height);
+
+    &__list {
+        overflow: hidden;
+        width: var(--s-9-w);
+        padding: var(--s-9);
+        @extend .d-flex;
+    }
+
+    &__details {
+        width: 100%;
+        // width: max-content;
+        // height: 100%;
+        @extend .d-flex;
+        // aspect-ratio: 5/4;
+    }
+
+    &__item {
+        width: var(--s-border-w);
+        cursor: pointer;
+        height: auto;
+        min-height: 150px;
+        position: relative;
+
+        &--header {
+            left: var(--s-11);
+            top: var(--s-11);
+            position: absolute;
+            z-index: 10;
+            opacity: .5;
+            display: block;
+            text-transform: uppercase;
+            color: var(--gray-100);
+            font-weight: 900;
+            font-family: Game;
+
+            white-space: nowrap;
+            font-size: var(--s-7);
+
+            :after {
+                top: 2px;
+                left: 2px
+            }
+
+            :before {
+                top: 1px;
+                left: 1px
+            }
+
+            ::before,
+            ::after {
+                content: attr(title);
+                color: var(--gray-60-o);
+                position: absolute;
+            }
+        }
+
+        border: solid 1px transparent;
+
+        &:hover {
+
+            border-color: var(--red-50-o);
+
+            .surveillance__item--header {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__header {
+        height: max-content;
+        width: var(--s-9-w);
+        padding: 0 var(--s-9);
+        color: var(--gray-50-o);
+        justify-content: flex-start;
+        @extend .d-flex;
+    }
+
+
+}
+
+.joystick {
+    width: var(--s-9-w);
+    padding: var(--s-9);
+    margin: auto;
+    @extend .d-flex;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    border: solid 1px;
+    background-color: var(--gray-100);
+    position: relative;
+
+    &-thumb {
+        position: absolute;
+        // top: 50%;
+        // transform:  translate(50%, 50%);
+        // left: 50%;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        min-width: 90px;
+        background-color: var(--primary-70);
+    }
+
+}

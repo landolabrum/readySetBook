@@ -1,0 +1,41 @@
+// Variables
+$defaultPadding: 10px;
+$defaultHeight: 80px;
+$cellHite: 50px;
+$bRad: 5px;
+$gap: 15px;
+$selectHite: 35px;
+$magnifySize: 15px;
+$overBreakPoint: 1350px;
+
+
+.adaptable {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: $bRad;
+  font-weight: 300;
+
+  @media(max-width: 1100px) {
+    overflow: hidden;
+  }
+
+  @media(max-width: 900px) {
+    background: inherit;
+    background-color: inherit;
+  }
+
+  font-size: 14px;
+
+  &.adaptable-mini {
+    font-size: 16px;
+    background-color: transparent;
+
+    @media(max-width: 900px) {
+      font-size: 11px;
+    }
+
+    // color: var(--td-color, --gray-30);
+    // --ui-icon-color: var(--td-color, --gray-30);
+  }
+}

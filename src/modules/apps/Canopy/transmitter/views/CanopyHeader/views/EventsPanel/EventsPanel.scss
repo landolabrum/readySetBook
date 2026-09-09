@@ -1,0 +1,43 @@
+.events-panel {
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    width: var(--s-9-w);
+    padding: var(--s-9);
+    position: relative;
+    border-bottom: solid 2px var(--gray-70-o);
+
+    @media(max-width: 900px) {
+        flex-direction: column;
+        min-height: 50vh;
+    }
+
+
+}
+
+.events-panel__hint {
+    padding: var(--s-9) 0;
+    font-size: var(--s-6);
+    color: var(--gray-40);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.events-panel fieldset {
+    border: none;
+    gap: var(--s-1);
+    width: 100%;
+    text-align: left;
+    font-style: italic;
+    text-transform: capitalize;
+    --ui-icon-size: var(--s-6);
+    --ui-icon-width: var(--s-1);
+    --ui-icon-color: var(--blue-10);
+}
+
+.events-panel legend {
+    letter-spacing: 4px;
+    text-align: left;
+    font-family: Decimal;
+    text-transform: capitalize;
+}

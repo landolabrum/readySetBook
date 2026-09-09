@@ -1,0 +1,43 @@
+.ui-qr {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+}
+
+.ui-qr__img,
+.ui-qr__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Variants simply control border treatment for now */
+.ui-qr[data-variant='rounded'] .ui-qr__img,
+.ui-qr[data-variant='rounded'] .ui-qr__canvas {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ui-qr[data-variant='dots'] .ui-qr__img,
+.ui-qr[data-variant='dots'] .ui-qr__canvas {
+  border-radius: 4px;
+}
+
+.ui-qr[data-variant='square'] .ui-qr__img,
+.ui-qr[data-variant='square'] .ui-qr__canvas {
+  border-radius: 0;
+}
+
+.ui-qr__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px;
+  line-height: 1;
+}

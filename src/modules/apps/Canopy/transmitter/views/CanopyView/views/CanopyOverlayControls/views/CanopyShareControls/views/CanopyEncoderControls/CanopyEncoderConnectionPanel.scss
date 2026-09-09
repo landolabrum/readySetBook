@@ -1,0 +1,84 @@
+.d-flex{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+
+.encoder-panel {
+  @extend .d-flex;
+flex-direction: column;
+
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: var(--s-9);
+  margin-bottom: 12px;
+width: var(--s-9-w);
+
+  &__header {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__badge {
+    background: #22c55e;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  &__body {
+    background: #0f172a;
+    border: 2px solid #22c55e;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  &__body-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #22c55e;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-9);
+    margin-bottom: var(--s-9);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: var(--s-1);
+  }
+
+  &__hls-note {
+    font-size: 10px;
+    color: #9ca3af;
+    margin-top: 6px;
+  }
+
+  &__footer {
+    font-size: 11px;
+    color: #9ca3af;
+    border-top: 1px solid #333;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}

@@ -1,0 +1,12 @@
+.d-flex{
+ display: flex;
+ align-items: center;
+}
+
+.contact-us{
+  // color: var(--gray-80);
+    @extend .d-flex;
+justify-content: flex-start;
+    flex-direction: column;
+    gap:var(--s-10);
+}

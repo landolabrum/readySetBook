@@ -1,0 +1,148 @@
+/* Xbox 360 Dashboard Map - Metallic Gray Theme */
+@use '../_overlay-mixins' as *;
+
+.overlay-map {
+  --size: 600px;
+  --ov-radius: 8px;
+  --ov-bg: linear-gradient(180deg,
+      rgba(85, 92, 100, 0.96) 0%,
+      rgba(55, 62, 68, 0.94) 50%,
+      rgba(42, 48, 54, 0.96) 100%);
+  --ov-border: rgba(120, 130, 140, 0.5);
+  --ov-speed-bg: linear-gradient(180deg,
+      rgba(75, 82, 90, 0.98) 0%,
+      rgba(55, 62, 68, 0.96) 100%);
+
+  // aspect-ratio: 7 / 3;
+  height: 100%;
+  position: relative;
+  inline-size: var(--size);
+  z-index: 1;
+  overflow: hidden;
+width: 100%;
+  @include overlay-glass-panel(var(--ov-bg), var(--ov-border), var(--ov-radius));
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(120, 130, 140, 0.5);
+  border-bottom: 1px solid rgba(25, 28, 32, 0.6);
+
+  /* Smooth entry animation */
+  animation: xbox-scale-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &__box {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__map {
+    position: absolute;
+    inset: 0;
+
+    &--static {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__speed {
+    position: absolute;
+    top: var(--s-11);
+    font-size: 2.5rem;
+    right: var(--s-10);
+    z-index: 2;
+    display: flex;
+    align-items: baseline;
+    font-family: Play;
+    font-style: italic;   
+    text-transform: uppercase;
+    font-weight: 600;
+    gap: var(--s-2);
+
+    line-height: 1;
+    font-weight: 600;
+    color: var(--red-90);
+    text-shadow: 0 0 0px var(--white), 0 6px 6px rgba(255, 255, 255, 0.5);
+  }
+
+  &__stale {
+    font-size: 12px;
+    opacity: 0.85;
+    letter-spacing: 0;
+  }
+
+  &__error {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--s-3);
+    text-align: center;
+    color: rgba(255, 200, 200, 0.95);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+  }
+
+  &__gps-status {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    padding: 4px 12px;
+    border-radius: 999px;
+    // background: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  &--blank {
+    @include overlay-blank-panel(false);
+    animation: none;
+    // Fill parent when used as a background layer (e.g. weather overlay)
+    inline-size: 100%;
+
+    .overlay-map__speed {
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+  }
+}
+
+/* Essential mapbox-gl layout – inlined so the map renders in headless / Docker
+   environments where the external /styles/mapbox.css may not load. */
+:global(.mapboxgl-map) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+:global(.mapboxgl-canvas-container),
+:global(.mapboxgl-canvas) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:global(.mapboxgl-control-container) {
+  display: none !important;
+}

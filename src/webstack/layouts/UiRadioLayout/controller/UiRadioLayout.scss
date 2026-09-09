@@ -1,0 +1,220 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-radio-layout {
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    width: 100%;
+    color: var(--gray-10);
+    gap: var(--s-9);
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    // overflow: visible;
+    position: relative;
+
+    @media (max-width: 1100px) {
+        flex-direction: column;
+    }
+
+    &__footer {
+        margin-left: auto;
+        @extend .d-flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        @media(max-width: 1100px) {
+            width: 100%;
+        }
+    }
+}
+
+.ui-radio-layout__navigation-title {
+    // font-size: var(--s-6);
+    text-align: center;
+    @extend .d-flex;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    font-weight: 600;
+    font-style: italic;
+    text-indent: var(--s-9);
+    background: var(--gray-90);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    height: max-content;
+    transform: translateY(0);
+    width: 100%;
+    transition: all ease 1s;
+    color: var(--primary-70);
+    --ui-icon-color: var(--primary-70);
+        height: var(--s-5);
+    // &__open{
+
+    // }
+    &__closed {
+        transform: translateY(-100%);
+        background: var(--gray-70);
+        color: var(--gray-70);
+        --ui-icon-color: var(--gray-70);
+
+        @media (max-width: 1100px) {
+            height: max-content;
+            transform: translateY(0);
+        }
+    }
+
+    &:hover {
+        background: var(--primary-50);
+    }
+
+    // margin-bottom: var(--s-6);
+}
+
+.ui-radio-layout--vertical {
+    flex-direction: column;
+    height: 100%;
+}
+
+/* When navigation is on the right, flip row direction so nav appears right */
+.ui-radio-layout--nav-right {
+    flex-direction: row-reverse;
+}
+
+.ui-radio-layout__navigation {
+    display: flex;
+    height: max-content;
+    justify-content: flex-start;
+    // flex-direction: row;
+    flex-direction: column;
+    // height: 100%;
+    gap: var(--s-9);
+    align-items: flex-start;
+    width: 100%;
+}
+
+.ui-radio-layout--vertical .ui-radio-layout__navigation {
+    --ui-icon-size: var(--s-4);
+    height: max-content;
+
+}
+
+.ui-radio-layout__navigation-items {
+    display: flex;
+    flex-direction: row;
+    gap: var(--s-9);
+    width: 100%;
+    // flex-wrap: wrap;
+}
+
+.ui-radio-layout--vertical .ui-radio-layout__navigation-items {
+    min-height: max-content;
+    gap: var(--s-9);
+}
+
+.ui-radio-layout__navigation-control {
+    display: flex;
+    align-items: center;
+    gap: var(--s-6);
+}
+
+.ui-radio-layout__navigation-extras {
+    display: flex;
+    align-items: center;
+    gap: var(--s-6);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.ui-radio-layout__content{
+width: 100%;
+}
+
+.ui-radio-layout__content-inner {
+        --slide-x: 0px;
+        min-height: max-content;
+        --slide-y: 0px;
+        animation: ui-radio-slide-in 220ms ease forwards;
+        display: flex;
+    &-left,
+    &-right {
+        --slide-x: calc(var(--s-5) * -1);
+        --slide-y: 0px;
+
+        @media(max-width: 1100px) {
+            flex-direction: column;
+
+        }
+    }
+
+
+}
+
+.ui-radio-layout__content-inner--nav-right {
+    // overflow-x: auto;
+    --slide-x: var(--s-5);
+    --slide-y: 0px;
+}
+
+.ui-radio-layout__content-inner--nav-top {
+    --slide-x: 0px;
+    --slide-y: -var(--s-5);
+}
+
+.ui-radio-layout__content-inner--nav-bottom {
+    --slide-x: 0px;
+    --slide-y: var(--s-5);
+}
+
+@keyframes ui-radio-slide-in {
+    from {
+        opacity: 0;
+        transform: translate(var(--slide-x), var(--slide-y));
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.ui-radio-layout__collapse-toggle {
+    background: none;
+    border-radius: var(--border-radius);
+    z-index: 5;
+
+    border-radius: 50%;
+    cursor: pointer;
+    padding: var(--s-11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--gray-10);
+    opacity: 0.7;
+    transition: opacity 150ms ease;
+    background-color: var(--primary-90);
+
+    &--closed {
+        background-color: unset;
+    }
+
+    &:hover {
+        background: var(--primary-50);
+        border: 1px solid var(--gray-70);
+        opacity: 1;
+    }
+}
+
+.ui-radio-layout--collapsed {
+    .ui-radio-layout__footer {
+        display: none;
+    }
+}

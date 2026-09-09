@@ -1,0 +1,132 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fleet-systems-details {
+    &__temp {
+        @extend .d-flex;
+        flex-direction: column;
+        padding: var(--s-7) var(--s-9);
+        background-color: var(--gray-100);
+        border-radius: inherit;
+        border: solid 1px var(--primary-o);
+        font-size: var(--s-7);
+        color: var(--gray-50);
+        gap: var(--s-7);
+
+        @media(min-width:var(--breakpoint-md)) {
+            flex-direction: row;
+        }
+
+        &--name {
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        &--percent {
+            font-size: var(--s-5);
+            @extend .d-flex;
+        }
+    }
+
+    &__disks {
+        height: max-content;
+        // width: 100%;
+    }
+
+    &__disk {
+        width: var(--s-9-w);
+        padding: var(--s-9);
+
+        &--header {
+            @extend .d-flex;
+            justify-content: space-between;
+        }
+
+        &--name {
+            font-weight: 600;
+        }
+
+        &--serial {
+            font-size: var(--s-7);
+            color: var(--gray-60);
+        }
+
+        &--details {
+            padding: var(--s-9) 0;
+        }
+
+        &--specs {
+            font-size: var(--s-7);
+            color: var(--gray-60);
+            padding-top: var(--s-9);
+        }
+    }
+
+    &__network-ifaces {
+        font-size: var(--s-7);
+    }
+
+    &__network-iface {
+        padding: 2px 0;
+    }
+
+    &__general {
+        width: var(--s-9-w);
+        padding:var(--s-9);
+        // overflow: hidden;
+        // @extend .d-flex;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__wrapper {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    // // overflow: hidden;
+    //     // overflow: hidden;
+    //     gap: var(--s-9);
+    //     position: relative;
+    //     height: max-content;
+    }
+
+    .card {
+        display: flex;
+        height: max-content;
+        flex-direction: column;
+        gap: var(--s-5);
+        width: max-content;
+
+        &--title {
+            background: var(--gray-80);
+            @extend .d-flex;
+            justify-content: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: underline;
+            color: var(--primary-50);
+            --ui-icon-color: var(--primary-50);
+            padding: var(--s-8) var(--s-9);
+            height: max-content;
+            font-size: var(--s-6);
+            --ui-icon-width: var(--s-1);
+            flex-wrap: wrap;
+        }
+
+        &--content {
+            &__info {
+                max-width: max-content;
+                overflow: auto;
+                @extend .d-flex;
+                align-items: flex-start;
+
+                flex-direction: column;
+                font-size: var(--s-5);
+                color: var(--gray-30);
+                text-transform: capitalize;
+            }
+        }
+    }
+}

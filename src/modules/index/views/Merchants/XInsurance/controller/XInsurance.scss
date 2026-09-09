@@ -1,0 +1,21 @@
+.xinsurance {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+
+  /* Fixed background layer behind everything */
+  &__bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none; /* clicks pass through */
+  }
+
+  /* Anything you render on top goes here */
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+}

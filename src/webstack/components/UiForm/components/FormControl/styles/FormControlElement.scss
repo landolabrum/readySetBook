@@ -1,0 +1,749 @@
+/* =========================================================
+   formControlElements.scss (refactor)
+   - Token values inlined (no $ variables)
+   - Variants no longer overridden by input/textarea skins
+   - Leaner, readable, themeable
+   ========================================================= */
+
+/* ====== MIXINS & HELPERS ====== */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin focus-skin($bg, $c, $bc) {
+  background-color: $bg;
+  color: $c; -webkit-text-fill-color: $c;
+  --ui-icon-color: #{$c};
+  border: solid 1px $bc;
+}
+
+@mixin hover-skin($bg, $c, $bc) {
+  background-color: $bg;
+  color: $c; -webkit-text-fill-color: $c;
+
+  --ui-icon-color: #{$c};
+  border: solid 1px $bc;
+}
+
+@mixin size-variant($fs, $iconW: $fs, $iconH: $fs, $h: auto) {
+  font-size: $fs;
+  --ui-icon-width: #{$iconW};
+  --ui-icon-height: #{$iconH};
+  height: $h;
+  line-height: 1.5;
+}
+
+// <VARIANT, BACKGROUND, COLOR, BORDER>
+@mixin variant($name,
+  $bg, $c, $bc,
+  $hBg, $hC, $hBc,
+  $fBg, $fC, $fBc) {
+  &--#{$name} {
+    background-color: $bg;
+    border: solid 1px $bc;
+    color: $c; -webkit-text-fill-color: $c;
+    --ui-icon-color: #{$c};
+
+    &:hover {
+      @include hover-skin($hBg, $hC, $hBc);
+    }
+
+    &:focus-within {
+      @include focus-skin($fBg, $fC, $fBc);
+    }
+  }
+}
+
+/* ====== KEYFRAMES ====== */
+@keyframes bump {
+  0% {
+    transform: rotate(0deg);
+    background-color: var(--gray-50);
+  }
+
+  30% {
+    transform: rotate(5deg);
+    background-color: var(--red-70);
+  }
+
+  70% {
+    transform: rotate(-2deg);
+    background-color: var(--gray-50);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    background-color: var(--red-70);
+  }
+}
+
+@keyframes glowTxt {
+  0% {
+    text-shadow: 0 0 var(--s-9) var(--primary-50);
+  }
+
+  100% {
+    text-shadow: 0 0 var(--s-8) var(--primary-50-o);
+  }
+}
+
+/* ====== UTILITIES ====== */
+.d-flex {
+  @include flex-center;
+}
+
+.icon-click {
+  cursor: pointer;
+}
+
+// %element-color {
+//   --ui-icon-color: #{var(--gray-30)};
+//   background-color: #{var(--gray-50)};
+//   transition: all 300ms;
+//   color: var(--gray-30);
+
+//   &:focus-within {
+//     color: var(--gray-100);
+//     background-color: var(--white);
+
+//     .form-control__icon {
+//       --ui-icon-color: #{var(--gray-40)};
+//     }
+//   }
+
+//   &:hover {
+//     @include hover-skin(var(--gray-30), var(--gray-30), var(--gray-60));
+//   }
+
+//   &-disabled,
+//   &--disabled {
+//     background-color: #f33;
+//     filter: brightness(.7) blur(2px);
+
+//     &:hover {
+//       color: var(--gray-60);
+//       --ui-icon-color: #{var(--gray-60)};
+//       background-color: var(--gray-70);
+//       outline: solid 1px var(--gray-60);
+//     }
+//   }
+// }
+
+.b-rad {
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  border-radius: var(--border-radius);
+}
+
+/* ====== FORM CONTROL ELEMENT ====== */
+.form-control__element {
+  font-size: var(--s-5);
+  --ui-icon-width: var(--s-5);
+  --ui-icon-height: var(--s-5);
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: var(--s-9);
+  cursor: pointer;
+  font-weight: 300;
+  @include flex-center;
+  line-height: 1;
+  height: calc(var(--s-element) - 2px);
+  white-space: nowrap;
+  // width: 100%;
+  // max-width: 100%;
+  // min-width: 0;
+  padding: 0 var(--s-9);
+  // &-disabled,
+  //   &--disabled {
+  //     filter: brightness(.7) blur(1px);
+
+
+  //   }
+  /* Size variants */
+  &-xs,
+  &-sm,
+  &-md,
+  &-lg,
+  &-xl,
+  &-xxl {
+    height: auto;
+    line-height: 1.5;
+  }
+
+  &-xs {
+    @include size-variant(var(--s-9));
+  }
+
+  &-sm {
+    @include size-variant(var(--s-7));
+    padding: 0 var;
+    border-radius: 0;
+    width: max-content;
+  }
+
+  &--input:not(.form-control__element--before-icon, .form-control__element--after-icon) {
+    padding: 0 var(--s-9);
+  }
+
+  &--input.form-control__element-sm {
+    font-size: var(--s-8);
+    height: var(--s-4);
+  }
+
+  &-md {
+    @include size-variant(var(--s-6));
+  }
+
+  &-lg {
+    @include size-variant(var(--s-4));
+  }
+
+  &-xl {
+    @include size-variant(var(--s-4), var(--s-2), var(--s-2));
+    padding: var(--s-7) var(--s-3);
+  }
+
+  &-xxl {
+    @include size-variant(var(--s-2), var(--s-1), var(--s-1), var(--s-xxl));
+    line-height: 2.3;
+  }
+
+  /* Apply helpers (default skin) */
+
+
+  &:not(&--signature, &--checkbox, &--round, &--nav-item, &--file) {
+    @extend .b-rad;
+  }
+
+  /* Icon spacing */
+  &--before-icon.form-control__element--link,
+  &--after-icon--link.form-control__element--link {
+    gap: var(--s-9);
+    white-space: normal;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  &--after-icon:not(&--flat, &--center, &--nav-item, &--nav-item--active, &--file, &--button) {
+    padding-left: var(--s-9);
+  }
+
+
+  /* ELEMENT TYPES */
+  &--button:not(&--link, &--nav-item, &--nav-item--active, &--disabled, &--flat, &--success, &--primary, &--secondary, &--warning, &--error, &--inherit, &--ghost, &--input, &--dark, &--transparent) {
+    // color: var(--black);
+    // --ui-icon-color: var(--black);
+    border: 1px solid currentColor;
+    // filter: brightness(.8);
+    // mix-blend-mode: inherit;
+    overflow: visible;
+    padding: 0 var(--s-9);
+    // background-color: var(--gray-20);
+    width: max-content;
+
+    &:hover,
+    &:focus {
+      --ui-icon-color: var(--primary-30);
+      color: var(--primary-30);
+      filter: brightness(1);
+    }
+  }
+
+
+
+  &--button.form-control__element--flat {
+    gap: var(--s-9);
+
+    &:first-child {
+      padding: 0;
+    }
+  }
+
+  &--checkbox {
+    width: max-content;
+    padding: 0;
+    height: var(--s-element);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  /* -------- INPUTS / TEXTAREAS (guard against variants) -------- */
+  &--input,
+  &--textarea {
+    // color: inherit;
+
+    &::placeholder {
+      text-indent: var(--s-9);
+      // color: inherit;
+    }
+
+    /* Don't repaint if any variant class is present */
+    &:not(.form-control__element--transparent,
+      .form-control__element--flat,
+      .form-control__element--file,
+      .form-control__element--checkbox,
+      .form-control__element--nav-item,
+      .form-control__element--primary,
+      .form-control__element--secondary,
+      .form-control__element--warning,
+      .form-control__element--error,
+      .form-control__element--signature,
+      .form-control__element--inherit,
+      .form-control__element--ghost,
+      .form-control__element--disabled) {
+      -webkit-text-fill-color: var(--gray-50);
+      --ui-icon-color: #{var(--gray-50)};
+      background-color: var(--gray-20-o);
+      border: solid 1px var(--gray-50-o);
+      // box-shadow: inset 1px 1px 3px 2px var(--gray-70-o);
+    }
+
+    &:not(.form-control__element--signature, .form-control__element--checkbox, .form-control__element--nav-item, .form-control__element--nav-item--active, .form-control__element--file) {
+      font-family: 'Game', sans-serif;
+      font-style: italic;
+    }
+
+    &:focus-within {
+          @include focus-skin(var(--gray-10), var(--white), var(--gray-100));
+      &:not(.form-control__element--nav-item,
+        .form-control__element--nav-item--active,
+        .form-control__element--signature,
+        .form-control__element--transparent,
+        .form-control__element--flat,
+        .form-control__element--file,
+        .form-control__element--checkbox,
+        .form-control__element--primary,
+        .form-control__element--secondary,
+        .form-control__element--warning,
+        .form-control__element--success,
+        .form-control__element--error,
+        .form-control__element--inherit,
+        .form-control__element--ghost,
+        .form-control__element--dark,
+
+        .form-control__element--disabled) {
+        @include focus-skin(var(--gray-50), var(--gray-80), var(--gray-80));
+      }
+    }
+
+    // &:not(.form-control__element--signature, .form-control__element--dark,
+    //   .form-control__element--disabled, .form-control__element--transparent, .form-control__element--checkbox, .form-control__element--file, .form-control__element--inherit) {
+    //   &:hover:not(&:focus-within) {
+    //     -webkit-text-fill-color: var(--gray-60);
+    //     background-color: var(--gray-50);
+    //     font-weight: 500;
+    //     color: var(--gray-60);
+    //     --ui-icon-color: #{var(--gray-60)};
+    //   }
+    // }
+
+    // &:nth-child(2) { padding:var(--s-12) var(--s-8); }
+  }
+
+  &--textarea {
+    height: max-content;
+    max-width: inherit;
+    padding: var(--s-11) 0 0 var(--s-9);
+    width: calc(100% - var(--s-9));
+    min-height: var(--s-element);
+  }
+
+  &--pill {
+    min-width: var(--s-9-w);
+    overflow: hidden;
+    // min-width: 200px ;
+  }
+
+  &--flat {
+    &--after-icon {
+      padding: 0 var(--s-2);
+
+      &-sm {
+        padding: 0 var(--s-10);
+      }
+    }
+  }
+
+  &--input-color {
+    padding: 0;
+    height: 100%;
+    background-color: transparent;
+  }
+
+  /* -------- VARIANTS -------- */
+  &--round {
+    border-radius: var(--s-1);
+  }
+
+  &--rank {
+    width: max-content;
+  }
+
+  @include variant('blocky',
+    unset, var(--gray-10), var(--gray-10),
+    var(--blue-90), var(--blue-30), var(--blue-50),
+    var(--gray-70), var(--gray-50), transparent);
+  @include variant('primary',
+    var(--primary-50), var(--gray-10), var(--primary-10),
+    var(--primary-50), var(--gray-10), var(--primary-50),
+    var(--primary-50), var(--white), transparent);
+  @include variant('secondary',
+    var(--secondary-90), var(--secondary-10), var(--secondary-10),
+    var(--secondary-30), var(--secondary-70), var(--secondary-30),
+    var(--secondary-50), var(--white), transparent);
+  @include variant('disabled',
+    transparent, var(--red-30), var(--gray-10),
+    var(--red-30-o), var(--red-10), var(--red-10),
+    var(--red-10), var(--red-50), transparent);
+  @include variant('success',
+    var(--green-70), var(--gray-20), var(--gray-20),
+    var(--green-70), var(--white), var(--white),
+    var(--green-50), var(--green-90), var(--gray-10),
+  );
+  @include variant('pill',
+    var(--gray-70), var(--gray-10), var(--gray-10),
+    var(--gray-60), var(--gray-10), var(--gray-10),
+    var(--gray-90), var(--white), var(--gray-10),
+  );
+
+  @include variant('dark',
+    var(--gray-100), var(--blue-10), var(--purple-10),
+    var(--blue-90), var(--gray-10), var(--green-10),
+    var(--white), var(--black), var(--purple-10),
+  );
+  @include variant('ghost',
+    var(--dark), var(--blue-10), var(--purple-10),
+    var(--blue-90), var(--gray-10), var(--green-10),
+    var(--white), var(--black), var(--purple-10),
+  );
+  @include variant('transparent',
+    transparent, inherit, transparent,
+    transparent, inherit, transparent,
+        transparent,
+        inherit,
+        transparent,
+  );
+
+  @include variant('warning',
+    var(--red-90), var(--red-10), var(--red-10),
+    var(--red-10), var(--gray-10), var(--gray-10),
+    var(--red-30), var(--gray-10), var(--red-10));
+
+  @include variant('signature',
+    inherit, var(--gray-40), transparent,
+    inherit, var(--gray-50), transparent,
+    inherit, var(--gray-30), transparent);
+
+  &--center {
+    min-width: 150px;
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  &--fit-text {
+    white-space: unset;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  &--inherit {
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit;
+    padding: inherit;
+    margin: inherit;
+    flex-direction: inherit;
+    gap: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+    text-decoration: inherit;
+    background-color: inherit;
+    border: inherit;
+    outline: inherit;
+    border-radius: inherit;
+    box-shadow: inherit;
+    aspect-ratio: inherit;
+    position: inherit;
+    text-align: inherit;
+  }
+
+  /* Glow / link / pill */
+  &--glow {
+    color: inherit;
+    overflow: hidden;
+    // position: absolute;
+    left: autofer;
+    width: inherit;
+    height: 100%;
+    outline: none;
+    border: none;
+    height: 100%;
+    backdrop-filter: blur(var(--s-12));
+    background: var(--blue-50-o);
+  }
+
+  &--glow:focus,
+  &--glow:focus-within {
+    background-color: var(--gray-30);
+  }
+
+  &--glow:hover:not(:focus, :focus-within) {
+    background-color: var(--primary-50);
+    color: var(--gray-10);
+    --ui-icon-color: var(--gray-10);
+  }
+
+  &--link {
+    color: var(--blue-10);
+    --ui-icon-color: var(--blue-10);
+    padding: 0;
+
+    width: 100%;
+    max-width: 100%;
+    gap: var(--s-10);
+    overflow: visible;
+    white-space: normal;
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &:hover {
+      animation: glowTxt 2s infinite;
+    }
+  }
+
+  &--bump {
+    animation: bump .3s;
+  }
+
+
+
+  /* INVALID/ERROR */
+  &--error {
+    position: relative;
+    background-color: transparent;
+    -webkit-text-fill-color: var(--gray-70);
+    opacity: 1;
+    --ui-icon-color: #{var(--gray-70)};
+    color: var(--gray-70);
+
+    &:not(&--signature) {
+      border: solid 1px var(--red-70);
+    }
+
+    &--signature {
+      border: 1px solid transparent;
+
+      .form-control__invalid {
+        color: var(--red-70);
+      }
+    }
+
+    .form-control__invalid {
+      position: absolute;
+      right: var(--s-2);
+      font-family: Play;
+      font-style: italic;
+      font-weight: bold;
+      animation: bump .4s ease-in;
+      font-size: var(--s-3);
+      user-select: none;
+      color: var(--red-50);
+      opacity: .5;
+    }
+  }
+
+  /* SELECT STYLES */
+  &--select {
+    &--flat {
+      background-color: var(--gray-70-o);
+      // color: inherit;
+      --ui-icon-color: var(--gray-70-o);
+      border: solid 1px transparent;
+
+      &:hover,
+      &:focus-within {
+        background-color: var(--gray-50);
+        color: var(--gray-30);
+        --ui-icon-color: #{var(--gray-50)};
+        border: solid 1px var(--gray-90);
+      }
+    }
+  }
+
+
+
+  &--select:not(&--flat, &--nav-item, &--nav-item--active) {
+    color: var(--gray-90);
+  }
+
+  &--select:not(&--flat, &--lite, &--nav-item, &--nav-item--active) {
+    color: var(--gray-60);
+    --ui-icon-color: var(--gray-60);
+    background-color: var(--gray-10);
+
+    &:hover {
+      color: var(--gray-40);
+      --ui-icon-color: #{var(--gray-40)};
+    }
+
+    &:focus-within {
+      color: var(--white);
+      --ui-icon-color: var(--white);
+      background-color: var(--gray-50);
+    }
+  }
+
+  // &--transparent {
+  //   background-color: transparent;
+  //   color: var(--orange-50);
+  //   --ui-icon-color: #{var(--primary-50)};
+
+  //   &:hover:not(&:focus-within) {
+  //     -webkit-text-fill-color: var(--gray-50);
+  //     background-color: var(--gray-80-o);
+  //     color: var(--gray-50);
+  //     --ui-icon-color: #{var(--gray-50)};
+  //   }
+
+  //   &:focus-within {
+  //     color: var(--gray-50);
+  //     background-color: var(--gray-90-o);
+  //   }
+  // }
+
+  /* --- NEW: blocky variant (polyline-clipped edges) --- */
+  &--blocky {
+    /* control the corner cut size via CSS var; falls back to 12px */
+    --fc-blocky-cut: var(--s-9, 12px);
+    clip-path: polygon(0 0,
+        calc(100% - var(--fc-blocky-cut)) 0,
+        100% var(--fc-blocky-cut),
+        100% 100%,
+        var(--fc-blocky-cut) 100%,
+        0 calc(100% - var(--fc-blocky-cut)));
+    border-radius: 0;
+    /* clip-path defines the silhouette */
+    /* keep base element colors and interactions; only change shape */
+  }
+
+  /* NAV ITEMS */
+  &--nav-item,
+  &--nav-item--active {
+
+    gap: var(--s-9);
+    color: var(--gray-10);
+    --ui-icon-color: #{var(--gray-10)};
+    transition: all .25s ease-in-out;
+    padding: unset;
+    border: unset;
+    justify-content: space-between;
+    color: var(--nav-item-color, --primary-70);
+    --ui-icon-color: var(--nav-item--color--hover, --primary-70);
+    padding: 0 var(--s-9);
+    text-transform: uppercase;
+    background: unset;
+    flex-direction: row-reverse;
+    border-radius: var(--border-radius);
+    &:hover {
+      border: solid 1px var(--primary-70);
+      color: var(--nav-item-color--hover, --primary-50);
+      --ui-icon-color: var(--nav-item--color--hover, --primary-50);
+    }
+
+    width: 100%;
+
+    &:focus-within {
+      color: var(--primary-50);
+      --ui-icon-color: #{var(--primary-50)};
+      background-color: var(--gray-90);
+    }
+
+    @media(max-width: 1100px) {
+      justify-content: space-between;
+      // justify-content: center;
+      // width: max-content;
+      // margin: var(--s-9) auto;
+      // padding:var(--s-9) var(--s-1);
+    }
+  }
+
+  &--file {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+
+
+// .form-control__element.form-control__element--error     { /* handled by --error block */ }
+
+/* Keep separate so it can be extended independently when needed */
+.form-control__element--inherit {
+  --ui-icon-color: unset;
+  --ui-icon-width: unset;
+  --ui-icon-height: unset;
+  text-decoration: inherit;
+  color: inherit;
+  background-color: inherit;
+  height: inherit;
+  min-height: inherit;
+  max-height: inherit;
+  width: inherit;
+  min-width: inherit;
+  max-width: inherit;
+  padding: inherit;
+  margin: inherit;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  flex-direction: inherit;
+  gap: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  border: inherit;
+  outline: inherit;
+  border-radius: inherit;
+  box-shadow: inherit;
+  aspect-ratio: inherit;
+  position: inherit;
+}
+
+/* A11y utility */
+.visually-hidden {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ====== SPECIFICITY BUMPS (after inputs) ======
+   Ensures variants still win if globals paint inputs later. */
+.form-control__element.form-control__element--warning {
+  // background-color: var(--gray-30);
+  border: solid 1px var(--red-30);
+  // color: var(--warning);
+  // --ui-icon-color: var(--warning);
+
+  &:hover {
+    @include hover-skin(var(--red-30), var(--gray-40), var(--red-30));
+  }
+
+  &:focus-within {
+    @include focus-skin(var(--red-30), var(--gray-10), transparent);
+  }
+}

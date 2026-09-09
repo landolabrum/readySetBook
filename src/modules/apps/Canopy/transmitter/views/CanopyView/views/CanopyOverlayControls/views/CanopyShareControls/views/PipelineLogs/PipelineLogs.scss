@@ -1,0 +1,160 @@
+.pipeline-logs {
+    background: #0d0d1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-top: 12px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 11px;
+    max-height: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+                width: 100%;
+    &--expanded {
+        max-height: 400px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        background: #1a1a2e;
+        border-bottom: 1px solid #333;
+        flex-shrink: 0;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 600;
+        color: #9ca3af;
+        font-family: inherit;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__toggle,
+    &__refresh {
+        background: transparent;
+        border: none;
+        color: #60a5fa;
+        cursor: pointer;
+        padding: 2px 6px;
+        font-size: 10px;
+        font-family: inherit;
+
+        &:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__content {
+        overflow-y: auto;
+        flex: 1;
+        padding: 4px 0;
+    }
+
+    &__row {
+        display: flex;
+        gap: 8px;
+        padding: 2px 12px;
+        line-height: 1.4;
+        border-left: 2px solid transparent;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+    }
+
+    &__ts {
+        color: #6b7280;
+        flex-shrink: 0;
+        width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__msg {
+        color: #d1d5db;
+        word-break: break-word;
+        flex: 1;
+    }
+
+    // Log levels
+    &__level {
+        &--error {
+            border-left-color: #ef4444;
+
+            .pipeline-logs__msg {
+                color: #fca5a5;
+            }
+        }
+
+        &--warn {
+            border-left-color: #f59e0b;
+
+            .pipeline-logs__msg {
+                color: #fcd34d;
+            }
+        }
+
+        &--debug {
+            border-left-color: #6b7280;
+
+            .pipeline-logs__msg {
+                color: #9ca3af;
+            }
+        }
+
+        &--info {
+            border-left-color: #3b82f6;
+        }
+    }
+
+    &__empty {
+        padding: 16px;
+        text-align: center;
+        color: #6b7280;
+    }
+
+    &__error {
+        padding: 8px 12px;
+        background: rgba(239, 68, 68, 0.1);
+        color: #fca5a5;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__more {
+        padding: 6px 12px;
+        border-top: 1px solid #333;
+        text-align: center;
+
+        button {
+            background: transparent;
+            border: none;
+            color: #60a5fa;
+            cursor: pointer;
+            font-size: 11px;
+            font-family: inherit;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

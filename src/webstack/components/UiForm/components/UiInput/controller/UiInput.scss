@@ -1,0 +1,368 @@
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.file-upload-button {
+
+  font-size: 1rem;
+  background: transparent;
+
+  color: var(--gray-10);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+
+  &:disabled {
+    background: var(--gray-50);
+    cursor: not-allowed;
+  }
+}
+
+.input__markdown-masked {
+  opacity: 0;
+}
+
+.ui-input {
+  margin-top: auto;
+  /* allow shrinking inside flex/grid parents */
+  // max-width: 100%;
+  // overflow: visible;
+  width: 100%;
+  min-width: max-content;
+  // max-width: 1100px;
+  position: relative;
+  --ui-input-caret-color: #000;
+  &__markdown-preview{
+    position: relative;
+    background: var(--gray-80);
+
+    z-index: 3;
+    background: var(--gray-80);
+    overflow-x: hidden;
+    border: unset;
+    border-radius: var(--s-12);
+    box-shadow: 2px 2px 3px #000;
+          bottom: 100%;
+          font-weight: "300";
+          position: absolute;
+            legend {
+                font-weight: 300;
+                font-family: Game;
+                font-size: var(--s-9);
+                padding: var(--s-12) var(--s-11);
+                border-radius: var(--s-12);
+                background: inherit;
+              }
+  }
+  .form-control__element--input,
+  .form-control__element--textarea {
+    cursor: text;
+  }
+
+  /* When the markdown mask is active, hide the raw input text */
+  &--masked {
+
+    .form-control__element--input,
+    .form-control__element--textarea {
+
+      input,
+      textarea {
+        color: transparent;
+        caret-color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+input,
+textarea {
+  // Define your custom styles for the input elements/
+  //
+
+  width: inherit;
+  height: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  letter-spacing: 1.5px;
+  // font-weight: 300;
+  outline: none;
+  color: inherit;
+  border: none;
+  cursor: inherit;
+  background-color: transparent;
+  caret-shape: block;
+  caret-color: var(--ui-input-caret-color);
+
+  /* Truncate long single-line input values so they fit parent */
+  &[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--s-5);
+    height: var(--s-5);
+    min-width: var(--s-5);
+    min-height: var(--s-5);
+    border: solid 1px var(--gray-50-o);
+    border-radius: calc(var(--border-radius) / 2);
+    background-color: var(--gray-20-o);
+    cursor: pointer;
+    position: relative;
+    transition: all 200ms;
+    margin: 0;
+
+    &:checked {
+      background-color: var(--primary-50);
+      border-color: var(--primary-50);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 9px;
+        border: solid var(--white);
+        border-width: 0 2px 2px 0;
+        transform: translate(-50%, -60%) rotate(45deg);
+      }
+    }
+
+    &:hover:not(:checked) {
+      border-color: var(--gray-50);
+      background-color: var(--gray-50);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-50);
+      outline-offset: 2px;
+    }
+  }
+
+  &[type=text],
+  &[type=search],
+  &[type=email],
+  &[type=tel],
+  &[type=url],
+  &[type=button] {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // ARROWS for TYPE='number'
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  // &[type=file]{
+  //   // opacity: 0;
+  //   // display: none;
+  // }
+  &[type=button] {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  // &.input-disabled {
+  //   user-select: none;
+  //   cursor: pointer;
+  //   &:focus {
+  //     caret-color: transparent;
+  //   }
+  // }
+
+  -webkit-text-fill-color: inherit;
+
+  // Override the autofilled input styles
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:-internal-autofill-selected {
+
+    color: inherit !important;
+    background-color: transparent !important;
+    -webkit-text-fill-color: inherit;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+
+  &.nav-item {
+    padding: 0;
+    justify-content: center;
+    text-transform: capitalize;
+    min-width: max-content;
+  }
+
+  &.input__has-icons {
+    text-indent: 8px;
+  }
+
+  &.center {
+    text-align: center;
+    text-indent: 0;
+    min-height: var(--s-element);
+    height: 100%;
+    min-width: var(--s-element);
+    width: 0;
+
+    @media(max-width: 900px) {}
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+
+      .input__preview {
+        visibility: visible;
+        position: absolute;
+      }
+    }
+  }
+
+  // VARIANTS
+  &.invalid {
+    text-shadow: 1px 1px #f30;
+    background-color: transparent;
+    z-index: 2;
+    text-decoration: underline dashed;
+    border-width: 0px 0px 2px 0px;
+    border-bottom-color: var(--red-70);
+  }
+
+  // &:focus,
+  // &:-webkit-autofill:focus{
+  //   background-color: #f30 !important;
+  // }
+
+
+  &.signature {
+    padding-left: var(--s-3);
+
+    ::placeholder {
+      color: var(--gray-70);
+      // padding: 0;
+
+      font-size: var(--s-2);
+    }
+
+    &::placeholder:hover {
+      color: var(--gray-10);
+    }
+
+    &::placeholder:focus-within:not(&:hover) {
+      &::before {
+        color: var(--gray-40);
+      }
+
+      &::after {
+        border-top-color: var(--gray-40);
+      }
+    }
+
+    font-size: var(--s-2);
+    font-family: 'Ephesis',
+    cursive;
+  }
+}
+
+@supports (caret-shape: block) {
+
+  input,
+  textarea {
+    caret-shape: block;
+  }
+}
+
+*::placeholder {
+  font-style: italic;
+  // padding: 0;
+  font-size: inherit;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  animation: fadeIn .6s ease-in-out;
+}
+
+.input__message {
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  color: var(--orange-50);
+  height: var(--s-element);
+  line-height: 1;
+  display: none;
+  text-indent: var(--s-4);
+
+  &.input__message-show {
+    display: flex;
+  }
+}
+
+input[type='button'] {
+  cursor: pointer;
+  display: block;
+  /* ✅ change from flex */
+  // width: var(--s-5-w);
+  min-width: max-content;
+
+  width: 100%;
+  /* fill parent width */
+  text-align: left;
+  /* optional for layout consistency */
+  box-sizing: border-box;
+  /* predictable sizing */
+  white-space: nowrap;
+  /* ✅ needed for ellipsis */
+  overflow: hidden;
+  /* ✅ hide overflow text */
+  text-overflow: ellipsis;
+  /* ✅ show '...' */
+}
+
+/* Markdown mask – sits over the input, rendering formatted markdown while idle */
+.input__markdown-mask {
+  position: absolute;
+  background-color: #f33;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  top: auto;
+  left: var(--s-9);
+  width: max-content;
+  align-items: center;
+  padding: inherit;
+  overflow: hidden;
+  cursor: text;
+  pointer-events: auto;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: inherit;
+  line-height: 1.2;
+  height: var(--s-element);
+  font-size: var(--s-5);
+}

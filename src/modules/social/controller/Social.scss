@@ -1,0 +1,19 @@
+.d-flex{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.social__default{
+    @extend .d-flex;
+    width: var(--s-4-w);
+    padding: var(--s-4);
+    &--title{
+        color: var(--gray-30);
+        font-size: var(--s-3);
+    }
+}
+.social{
+    width: 100%;
+    height: max-content;
+}

@@ -1,0 +1,1 @@
+// GENERATE HOOOKS, PROVIDERS, AND CONTEXTS FOR UI RESIZER LAYOUT. generate and import hooks from ./hooks

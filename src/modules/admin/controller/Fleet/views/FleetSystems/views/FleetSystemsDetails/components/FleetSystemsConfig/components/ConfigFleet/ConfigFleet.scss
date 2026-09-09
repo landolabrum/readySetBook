@@ -1,0 +1,124 @@
+.config-fleet {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__filter {
+    flex: 1;
+    background: var(--color-bg-1, #1a1a1a);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: inherit;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.85rem;
+  }
+
+  &__add {
+    display: grid;
+    grid-template-columns: 320px 1fr auto;
+    gap: 6px;
+
+    input {
+      background: var(--color-bg-1, #1a1a1a);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      padding: 6px 8px;
+      color: inherit;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.85rem;
+    }
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 480px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    padding: 6px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 320px 1fr auto;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  &__key {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+    word-break: break-all;
+    padding: 6px 0;
+    opacity: 0.85;
+  }
+
+  &__masked {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    opacity: 0.55;
+    padding: 6px 0;
+  }
+
+  &__value {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    padding: 4px 6px;
+    color: inherit;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+    resize: vertical;
+    min-height: 28px;
+
+    &:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &__row-actions {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding-top: 2px;
+  }
+
+  &__btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 4px 8px;
+    border-radius: 3px;
+
+    &:hover { opacity: 1; }
+    &:disabled { cursor: not-allowed; opacity: 0.3; }
+
+    &--danger:hover {
+      border-color: rgba(255, 100, 100, 0.4);
+      color: #ff7a7a;
+    }
+  }
+
+  &__empty {
+    opacity: 0.6;
+    font-size: 0.85rem;
+    font-style: italic;
+    padding: 8px;
+  }
+}
+.config-fleet__row--kiosk {
+  border-left: 2px solid #4af;
+  .config-fleet__key { color: #4af; }
+}

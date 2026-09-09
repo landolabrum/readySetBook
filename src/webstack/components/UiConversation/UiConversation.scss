@@ -1,0 +1,105 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-conversation {
+    @extend .d-flex;
+    height: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: var(--s-11);
+    width: 100%;
+    overflow-y: auto;
+    box-shadow: inset 0 0 0px rgba(0,0,0, .5);
+    height: 100%;
+    &--content {
+        @extend .d-flex;
+        justify-content:  flex-start;
+        flex-direction: column;
+        gap: var(--s-1);
+        width: var(--s-9-w);
+        position: relative;
+        min-height: max-content;
+        padding: var(--s-9);
+        height: 100%;
+        // background-color: #f33;
+    }
+
+    &__timestamp {
+        font-size: var(--s-10);
+        width: max-content;
+        color: var(--gray-10, #7a7a7a);
+        // align-self: flex-end;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+    }
+
+    &__body {
+        @extend .d-flex;
+        flex-direction: column;
+        gap: var(--s-8);
+        padding: var(--s-9);
+        border-radius: 8px;
+        max-width: 70%;
+        position: relative;
+
+        // width: 100%;
+    }
+
+    &__sender {
+        white-space: nowrap;
+        height: 100%;
+        font-size: var(--s-7);
+        width: max-content;
+        text-transform: uppercase;
+        // font-style: italic;
+        opacity: 0.33;
+        // @extend .d-flex;
+        // flex-direction: column;
+    }
+
+    // SENDER
+    &__message {
+        @extend .d-flex;
+        font-family: Decimal;
+        width: 100%;
+        flex-direction: row-reverse;
+justify-content: space-between;
+        .ui-conversation__body {
+            background: var(--gray-80, #f0f0f0);
+        }
+
+        &--own {
+            flex-direction: row;
+
+            .ui-conversation__sender {
+                width: max-content;
+            }
+
+            .ui-conversation__body {
+                background: var(--blue-30);
+                color: var(--white, #fff);
+                --ui-icon-color: var(--white, #fff);
+                        &::after {
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                right: -10px;
+                                width: 0;
+                                height: 0;
+                                border-top: 10px solid transparent;
+                                border-bottom: 10px solid transparent;
+                                border-left: 10px solid var(--blue-30);
+                            }
+            }
+
+            // background-color: #03f;
+            // align-items: flex-start;
+            // justify-content: flex-start;
+        }
+    }
+
+}

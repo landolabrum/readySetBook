@@ -1,0 +1,22 @@
+.overlay-media-label {
+    height: max-content;
+    position: absolute;
+    bottom: clamp(2px, 1%, 14px);
+    font-style: italic;
+    right: 1%;
+    white-space: nowrap;
+    padding: var(--s-9) var(--s-11);
+    font-size: clamp(10px, .6rem, 21px);
+    --ui-icon-size: clamp(10px, .6rem, 21px);
+    min-width: max-content;
+    font-weight: regular;
+    opacity: .5;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gray-10);
+    transition: all 0.5s ease-in-out;
+
+    &--hidden {
+        opacity: 0;
+    }
+}

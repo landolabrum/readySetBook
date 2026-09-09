@@ -1,0 +1,74 @@
+.card-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-controls__section {
+  background: var(--gray-5);
+  border: 1px solid var(--gray-20);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.card-controls__header {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-controls__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.card-controls__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+}
+
+.card-controls__item {
+  background: #0d1726;
+  color: #ecf3ff;
+  border: 1px solid #253145;
+  border-radius: 8px;
+  text-align: left;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.card-controls__item.is-active {
+  border-color: #4ea0ff;
+  box-shadow: 0 0 0 1px #4ea0ff inset;
+}
+
+.card-controls__item-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.card-controls__item-sub {
+  display: block;
+  opacity: 0.8;
+  font-size: 0.76rem;
+}
+
+.card-controls__pairing {
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px dashed var(--gray-30);
+  border-radius: 8px;
+}
+
+.card-controls__pairing-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.card-controls__hint {
+  margin-top: 4px;
+}

@@ -1,0 +1,103 @@
+.ui-resizer-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    position:relative;
+    gap: var(--s-9);
+    @media (max-width: 1100px) {
+        padding: 0;
+        width: 100%;
+
+    }
+
+    &--collapsed {
+        .ui-resizer-window__content {
+            display: none;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        background: transparent;
+        // border: none;
+        border-bottom: inset solid 1px var(--gray-70);
+        min-height: var(--s-element);
+        height: max-content;
+        flex-shrink: 0;
+        gap: var(--s-9);
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        align-items: flex-start;
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--primary-50);
+        font-family: Decimal;
+        font-weight: bold;
+        letter-spacing: .29rem;
+        text-transform: uppercase;
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        flex-direction: column;
+
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: var(--s-10);
+        flex-shrink: 0;
+        width:100%;
+        overflow:auto;
+    }
+
+    &__collapse-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--s-3);
+        height: var(--s-3);
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: var(--border-radius);
+        color: var(--gray-40);
+        cursor: pointer;
+        transition: all 200ms ease;
+
+        &:hover {
+            background: var(--gray-70);
+            color: var(--gray-20);
+        }
+
+        &:active {
+            background: var(--gray-60);
+            transform: scale(0.95);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-50);
+            outline-offset: 2px;
+        }
+    }
+
+    &__content {
+        flex: 1;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+}

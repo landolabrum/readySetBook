@@ -1,0 +1,38 @@
+.fleet-systems-controls {
+  width: 100%;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--s-2);
+    width: 100%;
+  }
+
+  &__relay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-2);
+    padding: var(--s-3);
+    border-radius: 8px;
+    border: 1px solid var(--gray-80);
+    background: var(--gray-95);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+
+    &:hover {
+      border-color: var(--gray-60);
+    }
+
+    &--on {
+      border-color: var(--green-40);
+      background: rgba(0, 200, 80, 0.06);
+    }
+
+    &__label {
+      font-size: var(--s-1);
+      color: var(--gray-30);
+      text-align: center;
+    }
+  }
+}

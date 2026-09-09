@@ -1,0 +1,231 @@
+$shadow-size: 8px;
+$badge: 19px;
+$elPad: 14px;
+
+.inherit {
+  // Inherits properties from the parent
+  --ui-icon-color: unset;
+  --ui-icon-width: unset;
+  --ui-icon-height: unset;
+  text-decoration: inherit;
+  color: inherit;
+  background-color: inherit;
+  height: inherit;
+  min-height: inherit;
+  max-height: inherit;
+  // width: inherit;
+  // min-width: inherit;
+  // max-width: inherit;
+  padding: inherit;
+  margin: inherit;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  flex-direction: inherit;
+  gap: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  border: inherit;
+  outline: inherit;
+  border-radius: inherit;
+  aspect-ratio: inherit;
+  position: inherit;
+  box-shadow: none;
+  text-shadow: none;
+  text-transform: inherit;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  color: inherit;
+  width: min(100%, var(--s--s-border-w));
+  // width:;
+
+  min-width: inherit;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-transform: capitalize;
+  height: max-content;
+
+  // justify-content: space-between;
+  &--pill {
+
+    margin-left: 10px;
+    align-self: flex-start;
+  }
+
+  &--file {
+    display: none;
+  }
+
+  // &--input, &--textara{
+  // &:hover:not( &:focus-within) {
+  //     // border-radius: var(--border-radius);
+  //     // background-color: var(--gray-80);
+  //     // border: solid 1px var(--gray-50);
+  //   }
+  // }
+  &:hover:not(&:focus-within) {
+    label {
+      color: var(--gray-50);
+    }
+  }
+
+  &:focus-within {
+    label {
+      color: var(--gray-20) !important
+    }
+  }
+
+  border: solid 1px transparent;
+
+  &__badge {
+    @extend .d-flex;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: var(--s-5);
+    height: var(--s-5);
+    font-size: var(--s-7);
+    color: var(--white);
+  }
+
+  @keyframes glow {
+
+    0%,
+    100% {
+      color: var(--primary-10);
+      border: solid 1px var(--primary-o);
+      // box-shadow: 0 0 1px 1px var(--primary-50);
+    }
+
+    33% {
+      border: solid 1px var(--primary-50);
+      color: var(--gray-20);
+      // box-shadow: 0 0 4px 2px var(--primary-o);
+    }
+  }
+
+  $mtrx: 4px;
+
+  &--file {
+    height: max-content;
+    justify-content: flex-end;
+    display: none;
+  }
+
+  &--glow {
+    animation: glow 1.5s infinite ease-in;
+    height: calc(var(--s-element) - 2px);
+    overflow: hidden !important;
+    border-radius: var(--border-radius);
+    width: max-content;
+    // width: calc(100% - calc(var(--s-9)*2));
+    // margin: auto;
+  }
+
+  .form-control__header {
+    @extend .d-flex;
+    justify-content: space-between;
+    // min-height: var(--s-4);
+
+    label {
+      font-size: var(--s-8);
+      font-style: italic;
+      text-indent: var(--s-10);
+      text-transform: uppercase;
+      color: var(--primary-50);
+      // text-shadow: 1px 1px 2px var(--primary-10);
+      line-height: 2;
+      mix-blend-mode: difference;
+      font-weight: 300;
+      font-family: Decimal, Helvetica, sans-serif;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      position: relative;
+
+      li {
+        display: none !important;
+      }
+
+      @media(max-width: 900px) {
+        font-size: var(--s-9);
+      }
+    }
+  }
+
+  &-sm {
+    .form-control__header {
+      min-height: unset;
+
+      label {
+        text-indent: var(--s-9);
+        font-size: var(--s-9);
+      }
+    }
+  }
+
+  &.form-control--inherit {
+    @extend .inherit;
+  }
+
+  &--maxY {
+    height: 100%;
+  }
+
+  &.form-control--invalid {
+    label {
+      color: var(--orange-50);
+    }
+  }
+
+  &--nav-item,
+  &--nav-item--active {
+    width: 100%;
+    min-width: max-content;
+    overflow-x: hidden;
+  }
+
+  // VARIANT DEFINITIONS
+  &--signature {
+    gap: var(--s-4);
+    background-color: var(--gray-90);
+    height: max-content;
+
+    &:hover {
+      background-color: var(--gray-90);
+    }
+  }
+
+  &--checkbox {
+    width: max-content;
+    flex-direction: row;
+  }
+
+  &--link {
+    width: 100%;
+    flex-direction: row;
+    white-space: normal;
+  }
+
+  &--dark {
+    .form-control__header {
+      label {
+        color: var(--gray-100);
+      }
+    }
+  }
+
+  &--fit-text {
+    width: max-content;
+    white-space: nowrap;
+  }
+}

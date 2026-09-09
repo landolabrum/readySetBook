@@ -1,0 +1,90 @@
+.download-details {
+  max-width: 760px;
+  font-family: Game;
+  &__back {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
+    cursor: pointer;
+    color: var(--primary, #2d6cdf);
+    font-size: 0.9rem;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  &__head-icon {
+    font-size: 2rem;
+  }
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  &__build {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  &__nosemver {
+    opacity: 0.6;
+  }
+
+  &__section {
+    margin: 20px 0;
+
+    h3 {
+      font-family: Play;
+      white-space: nowrap;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+  }
+
+  &__reqs {
+    margin: 0;
+    padding-left: 18px;
+
+    li {
+      margin: 4px 0;
+    }
+  }
+
+  &__state {
+    padding: 12px 0;
+    opacity: 0.75;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &__command {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__code {
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: #0d1117;
+    color: #e6edf3;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  &__hint {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.65;
+  }
+}

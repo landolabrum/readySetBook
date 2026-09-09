@@ -1,0 +1,102 @@
+$magnifySize: 15px;
+$bRad: 5px;
+$defaultPadding: 15px;
+
+.adaptable-header {
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-9);
+  width: 100%;
+  padding: var(--s-9) 0 var(--s-12);
+
+  @media(max-width: 900px) {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .adaptable-header__search-input {
+    min-width: 200px;
+
+    @media(max-width: 900px) {
+      width: 100%;
+    }
+
+    @media(max-width: 450px) {
+      padding: 0 5px;
+      width: calc(100% - 10px);
+    }
+  }
+
+  .adaptable-header__table-title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: calc($defaultPadding / 2);
+    text-transform: capitalize;
+
+    @media(max-width: 900px) {
+      flex-direction: column;
+      height: 100%;
+      padding: var(--s-9);
+      width: var(--s-9-w);
+
+    }
+
+    .adaptable-header__logo {
+      // --ui-icon-width: var(--s-2);
+      // --ui-icon-height: var(--s-2);
+      // --ui-icon-color: var(--gray-40);
+
+      @media(max-width: 900px) {
+        --ui-icon-color: var(--primary);
+        --ui-icon-width: 90px;
+        --ui-icon-height: 90px;
+        // transform: scale(400%);
+        height: max-content;
+        width: 100%;
+      }
+    }
+
+    .adaptable-header__title {
+      display: flex;
+      font-family: Play;
+      width: 100%;
+      align-items: center;
+      padding: 0;
+      height: inherit;
+      font-size: var(--s-4);
+      font-weight: 500;
+
+      @media(max-width: 900px) {
+        font-size: var(--s-8);
+        height: 100%;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .adaptable-header__filters {
+    display: flex;
+    align-items: center;
+    gap: var(--s-9);
+    padding: 0 var(--s-9);
+    border-radius: var(--border-radius);
+    height: var(--s-element);
+
+    @media(max-width: 900px) {
+      flex-direction: column;
+      width: var(--s-10-w);
+      padding: var(--s-10);
+      height: max-content;
+    }
+
+    .adaptable-header__filter {
+      @media(max-width: 900px) {
+        width: 100%;
+      }
+    }
+  }
+}

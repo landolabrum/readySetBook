@@ -1,0 +1,33 @@
+.d-flex{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.prev-teams {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+.gps-binding-info {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+  }
+}

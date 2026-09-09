@@ -1,0 +1,140 @@
+$black: #050505;
+
+@keyframes fadeIn {
+  0% {
+    backdrop-filter: blur(0);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    backdrop-filter: blur(0);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes translateIn {
+  0% {
+    transform: var(--start-translate);
+  }
+
+  100% {
+    transform: var(--end-translate);
+  }
+}
+
+@keyframes translateOut {
+  0% {
+    transform: var(--end-translate);
+  }
+
+  100% {
+    transform: var(--start-translate);
+  }
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  z-index: 999;
+  backdrop-filter: blur(2px);
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  &__content {
+    overflow: visible;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--icon {
+      width: 100%;
+      @extend .d-flex;
+
+      min-width: 200px;
+      aspect-ratio: 1;
+      --ui-icon-size: 100%;
+      --ui-icon-color: var(--gray-30);
+      animation: inherit; // Inherit the parent animation
+
+      &.loader--translate-in {
+        animation: translateIn var(--animation-duration) ease-in-out forwards;
+      }
+
+      &.loader--translate-out {
+        animation: translateOut var(--animation-duration) ease-in-out forwards;
+      }
+
+      &.loader--scale-in {
+        animation: scaleIn var(--animation-duration) ease-in-out forwards;
+      }
+
+      &.loader--scale-out {
+        animation: scaleOut var(--animation-duration) ease-in-out forwards;
+      }
+
+      &.loader--fade-in {
+        animation: fadeIn var(--animation-duration) ease-in-out forwards;
+      }
+
+      &.loader--fade-out {
+        animation: fadeOut var(--animation-duration) ease-in-out forwards;
+      }
+    }
+
+    &--bg-primary {
+      @extend .d-flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: var(--s-element);
+      width: 100%;
+      color: var(--gray-30);
+      margin-top: var(--s-4);
+      text-transform: capitalize;
+    }
+  }
+}
