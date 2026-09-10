@@ -172,24 +172,7 @@ body {
 color: var(--gray-10);
 --ui-icon-color: var(--white);
 text-shadow: 1px 1px 2px var(--primary-90-o);
-  #__next {
-    position: relative;
-    background: radial-gradient(circle at center, #FFF5AE 0%, #FFDBC7 50%, #FFC5DC 85%, #FFABF6 100%);
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease alternate infinite;
-    overflow: hidden;
-  }
-
-  #__next::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: 0.35;
-    filter: contrast(120%) brightness(100%);
-    /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E"); */
-    mix-blend-mode: overlay;
-    pointer-events: none;
-  }
+ 
         font-family: Montserrat;
 }
 
