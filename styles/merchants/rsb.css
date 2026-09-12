@@ -159,7 +159,7 @@
   --gray-100-o: #08080850;
 
 
-
+/* LITE */
   --ui-menu--background: var(--linear-gradient-80);
   --nav-item-color: var(--primary-80);
   --nav-item-color--hover: var(--primary-50);
@@ -170,12 +170,12 @@
 } */
 
 body {
+  /* LITE */
   background: var(--bg-primary);
-  color: var(--gray-90);
-  --ui-icon-color: var(--white);
-  /* text-shadow: 1px 1px 2px var(--black);
-    --ui-icon-shadow: 1px 1px 2px var(--black); */
+  color: var(--gray-80);
+  --ui-icon-color: var(--gray-10);
   font-family: Montserrat;
+  font-weight: 300;
 }
 
 
