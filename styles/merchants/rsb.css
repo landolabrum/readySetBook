@@ -171,10 +171,11 @@
 
 body {
   background: var(--bg-primary);
-  color: var(--gray-10);
+  color: var(--gray-90);
   --ui-icon-color: var(--white);
-  text-shadow: 1px 1px 2px var(--primary-10-o);
-
+  /* text-shadow: 1px 1px 2px var(--black);
+    --ui-icon-shadow: 1px 1px 2px var(--black); */
   font-family: Montserrat;
 }
+
 
