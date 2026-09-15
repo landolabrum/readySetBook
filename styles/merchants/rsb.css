@@ -72,7 +72,8 @@
   /* --bg-primary: radial-gradient(circle,
         var(--primary-10),
         #FBF7F4); */
-  --bg-secondary: var(--tertiary-10-o);
+  --bg-secondary: var(--secondary-10);
+  --bg-tertiary: var(--tertiary-10);
   /* --bg-primary: #d2d2d2; */
   --lite: #f0edeb;
   --dark: #14032c;
@@ -162,7 +163,7 @@
 
 
 /* LITE */
-  --ui-menu--background: var(--linear-gradient-80);
+  --ui-menu--background: var(--bg-secondary);
   --nav-item-color: var(--primary-80);
   --nav-item-color--hover: var(--primary-50);
 }
