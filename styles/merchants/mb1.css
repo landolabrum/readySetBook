@@ -48,7 +48,10 @@
       var(--gray-70) 0%,
       var(--gray-50) 17%,
       var(--gray-60) 100%);
-  /* --bg-primary: #d2d2d2; */
+        --bg-tertiary: radial-gradient(circle,
+              var(--tertiary-70) 0%,
+              var(--tertiary-50) 17%,
+              var(--tertiary-60) 100%);
   --lite: #f0edeb;
   --dark: #14032c;
   --dark-70: #200804;
