@@ -142,6 +142,8 @@
   --nav-item-color: var(--primary-70);
   --nav-item-color--hover: var(--primary-50);
   --ui-menu--background: var(--linear-gradient-80);
+
+    -webkit-text-fill-color: var(--gray-70);
 }
 
 h3 {

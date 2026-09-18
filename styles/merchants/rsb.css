@@ -167,6 +167,7 @@
   --nav-item-color--active:var(--primary-70);
   --nav-item-color: var(--primary-80);
   --nav-item-color--hover: var(--primary-50);
+    -webkit-text-fill-color: var(--primary-90);
 }
 
 /* h3 {
